@@ -1,9 +1,7 @@
 package com.cwbase.money.db.entity
 
-import android.arch.persistence.room.ColumnInfo
-import android.arch.persistence.room.Entity
-import android.arch.persistence.room.ForeignKey
-import android.arch.persistence.room.PrimaryKey
+import android.arch.persistence.room.*
+import com.cwbase.money.db.AppTypeConverters
 import java.util.*
 
 @Entity(foreignKeys = (arrayOf(
@@ -12,6 +10,7 @@ import java.util.*
         ForeignKey(entity = CreditCard::class, parentColumns = ["id"], childColumns = arrayOf("credit_card_id")),
         ForeignKey(entity = Bank::class, parentColumns = ["id"], childColumns = arrayOf("bank_id"))
 )))
+@TypeConverters(AppTypeConverters::class)
 data class Account(
 
         @PrimaryKey

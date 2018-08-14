@@ -11,6 +11,8 @@ class LoginActivity : AppCompatActivity() {
 
     val appCtx = MoneyAppContext.instance(applicationContext)
 
+    appCtx.db!!.currencyDao().loadAll()
+
     setContentView(R.layout.activity_login)
   }
 }
